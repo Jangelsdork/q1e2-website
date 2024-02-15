@@ -17,7 +17,7 @@ const Footer = (props: Props) => {
       <Link href={"https://q1e2recordings.bandcamp.com/"}><FaBandcamp size={50} /> </Link>
       </div>
       <div className={`${aoboshi.className} text-xs`}>© 2024 Q1E2 Recordings</div>
-      <div className={`${aoboshi.className} text-xs`}>Website design by <Link href={"https://jack-mangelsdorf.com/"}>Jack Mangelsdorf</Link></div>
+      <div className={`${aoboshi.className} text-xs`}>Website design by Jack Mangelsdorf</div>
     </div>
     </div>
     
