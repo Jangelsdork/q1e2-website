@@ -13,6 +13,7 @@ export const allReleases = [{
   blurb: "",
   instagram: "", 
   bandcamp: "", 
+  artistImage: ""
 },
 {
   id: 2,
@@ -22,6 +23,7 @@ export const allReleases = [{
   blurb: "",
   instagram: "", 
   bandcamp: "", 
+  artistImage: ""
 },
 {
   id: 3,
@@ -31,15 +33,17 @@ export const allReleases = [{
   blurb: "",
   instagram: "", 
   bandcamp: "", 
+  artistImage: ""
 },
 {
   id: 4,
   title: "Adayofthesun",
   artist: "Veezo", 
   cover: "/adayofthesun.jpg",
-  blurb: "",
+  blurb: "Veezo is a beatmaker out of Milan. A wizard on the Rhodes, he grew up on a healthy diet of jazz before branching out and undertaking collaborations with a number of hip hop acts. This led to a monumental shift in how he saw his place in music. He began experimenting with sampling, and exploring analogue sounds - introducing him to the world of modular systems, refining his studio skills and defining the artist we see now.",
   instagram: "", 
-  bandcamp: "", 
+  bandcamp: <iframe className="h-[120px] w-[100%] border-0"  src="https://bandcamp.com/EmbeddedPlayer/album=1781398062/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://q1e2recordings.bandcamp.com/album/adayofthesun-ep">adayofthesun EP by Veezo</a></iframe>,
+  artistImage: "/artist-pics/veezo.jpg" 
 },
 ]
 
