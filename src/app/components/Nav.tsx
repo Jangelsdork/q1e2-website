@@ -11,7 +11,7 @@ const Nav = (props: Props) => {
 
 
   return (
-    <div className='w-full h-[25vh] border-red-500 border-4 fixed overflow-hidden top-0 grid grid-cols-3 bg-white'>
+    <div className='w-full h-[25vh] border-red-500 border-4 fixed overflow-hidden top-0 grid grid-cols-3 bg-white z-10'>
     {/* <Image src={"./Q1E2-RECORDS-LOGO.svg"} alt='Q1E2 tag logo' width={0} height={0} style={{width: 'auto', height: "20vh"}} className='self-center	 align-middle ml-3' ></Image> */}
     <div className='self-center	 ml-3'>
       <Logo />
