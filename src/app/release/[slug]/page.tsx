@@ -30,8 +30,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="mt-[25vh] min-h-[55vh] sm:grid grid-cols-2 border-red-500 border-4">
-      <div className="flex flex-col gap-8 m-12">
-        <div className={`${aoboshi.className} sm:text-8xl text-4xl`}>
+      <div className="flex  flex-col gap-8 m-12">
+        <div className={`${aoboshi.className} sm:text-6xl  text-4xl`}>
           {artist}
         </div>
         <div className={`${average.className} sm:text-4xl text-2xl`}>
