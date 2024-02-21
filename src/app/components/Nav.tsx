@@ -19,7 +19,7 @@ const Nav = (props: Props) => {
     <div className={` text-2xl sm:text-6xl ${panchang.className} self-center  justify-self-center font-bold`}>Releases</div>
     <div className={`flex flex-col items-end mr-3 self-center text-xs  sm:text-s ${panchang.className}`}>
         <Link href={"/"} className=' hover:font-bold hover":cursor-pointer '>Releases</Link>
-        <div className=' hover:font-bold hover":cursor-pointer '>About</div>
+        <Link href={"/about"} className=' hover:font-bold hover":cursor-pointer '>About</Link>
         <div className=' hover:font-bold hover":cursor-pointer '>Shop</div>
         <div className=' hover:font-bold hover":cursor-pointer '>Contact</div>
     </div>
