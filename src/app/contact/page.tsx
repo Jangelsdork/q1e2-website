@@ -40,7 +40,7 @@ export default function ProfileForm() {
       }
 
   return (
-    <div className="mt-[25vh]">
+    <div className="mt-[25vh] max-w-[30vw] flex ">
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
