@@ -66,7 +66,7 @@ export default function ProfileForm() {
       }
 
   return (
-    <div className="mt-[25vh] min-h-[55vh] w-full flex justify-center p-10  ">
+    <div className={`mt-[25vh] min-h-[55vh] w-full flex justify-center p-10 text-white bg-red-500`}>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -102,7 +102,7 @@ export default function ProfileForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea placeholder="your message..." {...field} />
               </FormControl>
@@ -112,7 +112,7 @@ export default function ProfileForm() {
           )}
         />
         
-        <Button type="submit">Submit</Button>
+        <Button variant="outline" type="submit">Submit</Button>
       </form>
     </Form>
     </div>
