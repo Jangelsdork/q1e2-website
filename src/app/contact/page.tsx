@@ -1,17 +1,19 @@
+/* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
-"use client"
-import { aoboshi, average } from "../../app/fonts";
 
- 
+"use client"
+
 import { zodResolver } from "@hookform/resolvers/zod"
+
 import { useForm } from "react-hook-form"
 import { z } from "zod"
- 
+import { Textarea } from "@/components/ui/textarea"
+
+
 import { Button } from "../../components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,7 +21,8 @@ import {
 } from "../../components/ui/form"
 import { Input } from "../../components/ui/input"
 
-import { Textarea } from "@/components/ui/textarea"
+
+import { average } from "../fonts";
 
  
 const formSchema = z.object({
@@ -48,6 +51,8 @@ const formSchema = z.object({
       message: "Name too long - max 500 characters",
     }),
 });
+
+export type FormInput = z.infer<typeof formSchema>
  
 export default function ProfileForm() {
 
@@ -61,11 +66,28 @@ export default function ProfileForm() {
       })
      
       // 2. Define a submit handler.
-      function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
-      }
+      async function onSubmit(values: z.infer<typeof formSchema>) {
+  
+        try{
+            const res: Response = await fetch ("/api/send-email",
+            {
+              method: "POST",
+              mode: "cors",
+              body: JSON.stringify(values),
+              headers: {
+                "content-type": "application/json"
+              },
+            })
+            const data = await res.json();
+            if(data){
+              console.log(data)
+            }
+          }
+          catch (error){
+            console.log(error)
+          }
+          
+        }
 
   return (
     <div className={`${average.className} mt-[25vh] min-h-[55vh] w-full flex justify-center p-10 text-white bg-red-500`}>

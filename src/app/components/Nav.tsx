@@ -1,15 +1,14 @@
 /* eslint-disable arrow-body-style */
+
 "use client"
 
 import React, { useState } from 'react'
-import { panchang } from '../fonts'
-import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '../components/Logo'
+import Logo from './Logo'
+import { panchang } from '../fonts'
 
-type Props = {}
 
-const Nav = (props: Props) => {
+const Nav = () => {
 
   const [currentPage, setCurrentPage] = useState<string>("Releases")
 
