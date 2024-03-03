@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 "use client"
+import { aoboshi, average } from "../../app/fonts";
+
  
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -66,7 +68,7 @@ export default function ProfileForm() {
       }
 
   return (
-    <div className={`mt-[25vh] min-h-[55vh] w-full flex justify-center p-10 text-white bg-red-500`}>
+    <div className={`${average.className} mt-[25vh] min-h-[55vh] w-full flex justify-center p-10 text-white bg-red-500`}>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
