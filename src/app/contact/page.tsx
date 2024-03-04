@@ -4,6 +4,11 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+
+
+import { AiOutlineLoading } from "react-icons/ai";
+
 
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -23,6 +28,7 @@ import { Input } from "../../components/ui/input"
 
 
 import { average } from "../fonts";
+
 
  
 const formSchema = z.object({
@@ -56,6 +62,10 @@ export type FormInput = z.infer<typeof formSchema>
  
 export default function ProfileForm() {
 
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [hasLoaded, setHasLoaded] = useState<boolean>(false)
+    const [displayError, setDisplayError] = useState<boolean>(false)
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -67,7 +77,7 @@ export default function ProfileForm() {
      
       // 2. Define a submit handler.
       async function onSubmit(values: z.infer<typeof formSchema>) {
-  
+        setIsLoading(true)
         try{
             const res: Response = await fetch ("/api/send-email",
             {
@@ -81,18 +91,24 @@ export default function ProfileForm() {
             const data = await res.json();
             if(data){
               console.log(data)
+              setHasLoaded(true)
+              setIsLoading(false)
             }
           }
           catch (error){
+            setIsLoading(false)
             console.log(error)
+            setDisplayError(true)
           }
           
         }
 
+
+
   return (
-    <div className={`${average.className} mt-[25vh] min-h-[55vh] w-full flex justify-center p-10 text-white bg-red-500`}>
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+    <div className={`${average.className} mt-[25vh] min-h-[55vh]  w-full flex justify-center p-10 text-white bg-red-500`}>
+    <Form {...form} >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 min-w-[60vw]">
         <FormField
           control={form.control}
           name="name"
@@ -135,8 +151,15 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
+        {/* disable button if submission successfull  */}
         
-        <Button variant="outline" type="submit">Submit</Button>
+        {!hasLoaded?<Button variant="outline" type="submit" className="w-100%">Submit</Button>:<Button variant="outline" type="submit" disabled className="w-100%">Submit</Button>}
+        
+        {isLoading?<AiOutlineLoading className="animate-spin" />:<div />}
+        {hasLoaded?<div>Thanks, we{"'"}ve received your message.</div>:<div />}
+        {displayError?<div>Sorry, there{"'"}s been an issue sending your message. You can try again or reach out at info@q1e2.nl</div>:<div />}
+
+
       </form>
     </Form>
     </div>
