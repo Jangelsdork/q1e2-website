@@ -9,6 +9,8 @@ export const EmailTemplate: React.FC<Readonly<FormInput>> = ({
   ...FormData
 }) => (
   <div>
-    <h1>Welcome, {FormData.name}!</h1>
+    <h1>New Message from, {FormData.name}!</h1>
+    <div>Email: {FormData.email}</div>
+    <div>Message: {FormData.message}</div>
   </div>
 );
