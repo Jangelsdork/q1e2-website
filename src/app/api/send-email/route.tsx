@@ -14,9 +14,9 @@ export async function POST(req: NextRequest): Promise<NextResponse<unknown>> {
 const formData:FormInput = await req.json()
   try {
     const data = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
-      to: ['j.hespe.mangelsdorf@gmail.com'],
-      subject: 'Hello world',
+      from: 'Q1E2 <q1e2@wearee.nl>',
+      to: ['jack@wearee.nl', 'jason@wearee.nl'],
+      subject: 'Q1E2 website enquiry',
       react: EmailTemplate({ ...formData }),
     });
 
