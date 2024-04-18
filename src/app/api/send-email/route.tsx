@@ -1,8 +1,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
 import { NextRequest, NextResponse } from 'next/server';
-
-
 import { EmailTemplate } from '../../components/emailTemplate';
 import { FormInput } from '../../contact/page';
 import { Resend } from 'resend';
@@ -18,7 +16,7 @@ const formData:FormInput = await req.json()
       to: ['jack@wearee.nl', 'jason@wearee.nl'],
       subject: 'Q1E2 website enquiry',
       react: EmailTemplate({ ...formData }),
-      text: ""
+      text: ''
     });
 
     return NextResponse.json(data);
