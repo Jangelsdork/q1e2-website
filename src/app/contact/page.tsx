@@ -91,8 +91,14 @@ export default function ProfileForm() {
             const data = await res.json();
             if(data){
               console.log(data)
-              setHasLoaded(true)
-              setIsLoading(false)
+              if(data.error){
+                setDisplayError(true)
+                setHasLoaded(true)
+              }
+              else if(!data.error){
+                setHasLoaded(true)
+                setIsLoading(false)
+              }
             }
           }
           catch (error){
